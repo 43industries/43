@@ -71,6 +71,11 @@ def xrpl_page():
     return render_template("xrpl.html")
 
 
+@app.route("/fund")
+def fund_page():
+    return render_template("fund.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
@@ -108,6 +113,31 @@ def contact_submit():
         pass
     flash("Thanks, your message has been received.")
     return redirect(url_for("home"))
+
+
+@app.route("/fund/interest", methods=["POST"])
+def fund_interest():
+    path = BASE_DIR / "fund_leads.json"
+    if path.exists():
+        try:
+            leads = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            leads = []
+    else:
+        leads = []
+
+    leads.append(
+        {
+            "name": request.form.get("name", "").strip(),
+            "email": request.form.get("email", "").strip(),
+            "ticket": request.form.get("ticket", "").strip(),
+            "notes": request.form.get("notes", "").strip(),
+            "created_at": datetime.utcnow().isoformat() + "Z",
+        }
+    )
+    path.write_text(json.dumps(leads, indent=2), encoding="utf-8")
+    flash("Thanks for your interest. We’ll follow up directly.")
+    return redirect(url_for("fund_page"))
 
 
 @app.route("/admin")
