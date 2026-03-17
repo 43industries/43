@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XRPL · 43 Industries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #050509;
+      --white: #f4f4f4;
+      --accent: #27e6ff;
+      --accent-soft: rgba(39,230,255,0.14);
+      --muted: #8b8b9a;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #181820, #050509 55%);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header {
+      padding: 1.75rem 4rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: linear-gradient(90deg, rgba(5,5,12,0.9), rgba(5,5,12,0.6));
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.16em;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+    .logo span { color: #ff3c1f; }
+    .header-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .header-link:hover { color: var(--accent); }
+    main {
+      padding: 3rem 4rem 4rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 4vw, 3.6rem);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .lede {
+      max-width: 560px;
+      line-height: 1.7;
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 2.2rem;
+    }
+    section {
+      margin-top: 2.5rem;
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(39,230,255,0.07), rgba(5,5,12,0.95));
+      padding: 1.75rem 1.7rem 1.6rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+    .section-copy {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
+    }
+    th, td {
+      padding: 0.6rem 0.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+    }
+    th {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    .why {
+      margin-top: 1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .why strong {
+      color: var(--white);
+    }
+    @media (max-width: 900px) {
+      header { padding: 1.25rem 1.6rem; }
+      main { padding: 2.2rem 1.6rem 3rem; }
+      section { padding: 1.4rem 1.25rem 1.3rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.45rem 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">43<span>.</span>Industries</div>
+    <a class="header-link" href="/">← Back to Studio</a>
+  </header>
+  <main>
+    <div class="eyebrow">XRPL Strategy</div>
+    <h1>The XRP‑Native Playbook</h1>
+    <p class="lede">
+      A focused thesis for builders and funds who want to live inside the XRP Ledger:
+      own the narrative, ship useful tools, and put personal capital to work with intention.
+    </p>
+
+    <!-- 1. Fund narrative -->
+    <section>
+      <h2>1. Fund Narrative</h2>
+      <h3>"The XRP‑Native Fund"</h3>
+      <p class="section-copy">
+        Most crypto funds market themselves as BTC / ETH generalists. This reframes your vehicle
+        as a dedicated bet on the XRP ecosystem.
+      </p>
+      <table>
+        <thead>
+        <tr>
+          <th>Current positioning</th>
+          <th>Sharper positioning</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>"Crypto &amp; precious metals"</td>
+          <td>"XRP ecosystem + hard assets"</td>
+        </tr>
+        <tr>
+          <td>"Digital assets"</td>
+          <td>"XRPL infrastructure and native tokens"</td>
+        </tr>
+        <tr>
+          <td>"Crypto sleeve"</td>
+          <td>"XRP conviction, diversified XRPL exposure"</td>
+        </tr>
+        </tbody>
+      </table>
+      <p class="why">
+        <strong>Why this works:</strong> XRP holders are tribal, underserved, and capitalized.
+        They want funds that <em>get it</em>.
+      </p>
+    </section>
+
+    <!-- 2. Personal XRP -->
+    <section>
+      <h2>2. Personal XRP</h2>
+      <h3>Deploy or Hold?</h3>
+      <p class="section-copy">
+        Treat your own stack as strategic fuel, not trading inventory. Align it with your risk
+        tolerance and your build runway.
+      </p>
+      <table>
+        <thead>
+        <tr>
+          <th>Option</th>
+          <th>Action</th>
+          <th>Rationale</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Hold</td>
+          <td>Cold storage, forget</td>
+          <td>Conviction preserved, minimal friction</td>
+        </tr>
+        <tr>
+          <td>Stake / earn</td>
+          <td>AMM pools, lending</td>
+          <td>Yield with smart, sized risk</td>
+        </tr>
+        <tr>
+          <td>Deploy into fund</td>
+          <td>Seed your own AUM</td>
+          <td>Skin in the game, confidence for allocators</td>
+        </tr>
+        <tr>
+          <td>Fintech runway</td>
+          <td>Pay yourself to build</td>
+          <td>Convert XRP into focused build time</td>
+        </tr>
+        </tbody>
+      </table>
+      <p class="why">
+        Given this lens — <strong>fintech revenue first, then fund growth</strong> — the bias is toward
+        holding or light staking. Don’t sell the core stack at shallow levels just to fund experiments.
+      </p>
+    </section>
+
+    <!-- 3. Fintech: own XRPL -->
+    <section>
+      <h2>3. Fintech</h2>
+      <h3>Own the XRPL Wedge</h3>
+      <p class="section-copy">
+        You are technical, Cursor‑native, and early. Ship simple tools that make the ledger more
+        legible for operators and capital.
+      </p>
+      <table>
+        <thead>
+        <tr>
+          <th>This week</th>
+          <th>Ship</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>XRPL tool</td>
+          <td><a href="/xrpl/address" style="color:#27e6ff;text-decoration:none;">Address explorer</a>, transaction tracker, or AMM calculator</td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td>"What I learned building on XRPL"</td>
+        </tr>
+        <tr>
+          <td>Outreach</td>
+          <td>5 cold DMs to XRPL grantees</td>
+        </tr>
+        </tbody>
+      </table>
+      <p class="why">
+        Small, sharp tools plus honest build-in-public content is how you become the default
+        XRPL person in your niche.
+      </p>
+    </section>
+
+    <!-- 4. XRP sleeve structure -->
+    <section>
+      <h2>4. Portfolio Design</h2>
+      <h3>XRP Sleeve Structure</h3>
+      <p class="section-copy">
+        A simple, intuitive allocation that keeps XRP at the core while acknowledging BTC / ETH
+        market beta and higher‑risk XRPL infrastructure bets.
+      </p>
+      <table>
+        <thead>
+        <tr>
+          <th>Component</th>
+          <th>Allocation rationale</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Core: XRP</td>
+          <td>40–50% — your conviction, ecosystem exposure</td>
+        </tr>
+        <tr>
+          <td>Large‑cap: BTC, ETH</td>
+          <td>30–40% — market beta, LP comfort</td>
+        </tr>
+        <tr>
+          <td>Infrastructure: XRPL tokens, L1s</td>
+          <td>10–20% — ecosystem plays, higher risk / reward</td>
+        </tr>
+        </tbody>
+      </table>
+      <p class="why">
+        <strong>Rebalancing:</strong> Quarterly or on significant moves (&gt;50%), not daily trading.
+      </p>
+    </section>
+
+  </main>
+</body>
+</html>
+
