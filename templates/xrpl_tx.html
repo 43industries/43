@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XRPL Transaction Lookup · 43 Industries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141826, #050509 55%);
+      color: #f5f5f5;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .logo {
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .logo span { color: #ff3c1f; }
+    .back-link {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8b8b9a;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #27e6ff; }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #27e6ff;
+      margin-bottom: 0.7rem;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+    }
+    .muted {
+      font-size: 0.9rem;
+      color: #9b9bb0;
+    }
+    form {
+      margin-top: 1.6rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"] {
+      flex: 1;
+      min-width: 260px;
+      padding: 0.6rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: #050509;
+      color: #f5f5f5;
+      font-size: 0.88rem;
+    }
+    button {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: #27e6ff;
+      color: #050509;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.05); }
+    .error {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: #ff6b5a;
+    }
+    .card {
+      margin-top: 1.8rem;
+      padding: 1.4rem 1.3rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5,5,10,0.9);
+      font-size: 0.86rem;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .label {
+      color: #9b9bb0;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .value {
+      text-align: right;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">43<span>.</span>Industries</div>
+    <a class="back-link" href="/xrpl">← Back to XRPL Strategy</a>
+  </header>
+  <main>
+    <div class="eyebrow">XRPL Tool</div>
+    <h1>Transaction Lookup</h1>
+    <p class="muted">
+      Paste any XRPL transaction hash to see its basic metadata and outcome.
+    </p>
+
+    <form method="post">
+      <input type="text" name="hash" placeholder="TX hash…" value="{{ tx_hash }}" required>
+      <button type="submit">Lookup</button>
+    </form>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if data %}
+    <div class="card">
+      <div class="row">
+        <div class="label">Hash</div>
+        <div class="value"><code>{{ data.hash }}</code></div>
+      </div>
+      <div class="row">
+        <div class="label">Result</div>
+        <div class="value">{{ data.meta.TransactionResult }}</div>
+      </div>
+      <div class="row">
+        <div class="label">Type</div>
+        <div class="value">{{ data.type }}</div>
+      </div>
+      <div class="row">
+        <div class="label">Account</div>
+        <div class="value"><code>{{ data.account }}</code></div>
+      </div>
+      <div class="row">
+        <div class="label">Ledger</div>
+        <div class="value">{{ data.ledger_index }}</div>
+      </div>
+      <div class="row">
+        <div class="label">Fee</div>
+        <div class="value">{{ data.fee }} drops</div>
+      </div>
+    </div>
+    {% endif %}
+  </main>
+</body>
+</html>
+

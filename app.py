@@ -186,6 +186,29 @@ def xrpl_address():
     return render_template("xrpl_address.html", data=data, error=error, address=address)
 
 
+@app.route("/xrpl/tx", methods=["GET", "POST"])
+def xrpl_tx():
+    data = None
+    error = None
+    tx_hash = ""
+    if request.method == "POST":
+        tx_hash = request.form.get("hash", "").strip()
+        if tx_hash:
+            try:
+                resp = requests.get(
+                    f"https://api.xrpscan.com/api/v1/tx/{tx_hash}", timeout=5
+                )
+                if resp.status_code == 200:
+                    data = resp.json()
+                else:
+                    error = "Transaction not found or XRPL API error."
+            except Exception:
+                error = "Unable to reach XRPL API right now."
+        else:
+            error = "Please enter a transaction hash."
+    return render_template("xrpl_tx.html", data=data, error=error, tx_hash=tx_hash)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
